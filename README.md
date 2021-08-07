@@ -1,11 +1,5 @@
 ### project uses:
 
-# FRONT END
-
-tachyons
-
-clarifai api (now js is discontinued but project still works)
-
 
 # BACK END
 

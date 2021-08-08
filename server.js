@@ -30,7 +30,7 @@ app.use(express.json());
 
 //TEST
 app.get("/", (req, res) => {
-  res.send(database.users);
+  res.send('it;s working!!');
 });
 
 //SIGN IN AN EXISTING USER

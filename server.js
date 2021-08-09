@@ -13,9 +13,9 @@ const db = knex({
   client: "pg",
   version: "8.6.0",
   connection: {
-    host: "127.0.0.1",
+    host: "postgresql-symmetrical-01265",
     user: "postgres",
-    password: "hEGYEKBENsZIVUNK3",
+    password: "",
     database: "facerecognition",
   },
 });

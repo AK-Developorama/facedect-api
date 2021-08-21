@@ -27,7 +27,7 @@ app.use(express.json());
 
 //TEST
 app.get("/", (req, res) => {
-  res.send('it;s working!!');
+  res.send('it is working!!');
 });
 
 //SIGN IN AN EXISTING USER

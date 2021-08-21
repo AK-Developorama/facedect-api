@@ -12,12 +12,10 @@ const image = require("./controllers/image");
 const db = knex({
   client: "pg",
   connection: {
-    host: "postgresql-graceful-32587",
-    user: "pdyliqfgfglico",
-    password: '',
-    
-    /* connectionString: process.env.DATABASE_URL,
-    ssl: true, */
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
   },
 });
 
@@ -31,7 +29,7 @@ app.use(express.json());
 
 //TEST
 app.get("/", (req, res) => {
-  res.send('it is working!!');
+  res.send("it is working!!");
 });
 
 //SIGN IN AN EXISTING USER

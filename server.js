@@ -7,8 +7,7 @@ const signin = require("./controllers/signin");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 
-/* const PORT = process.env.PORT;
- */
+
 const db = knex({
   client: "pg",
   connection: {
@@ -26,6 +25,47 @@ app.use(cors());
 //REPLACED BODYPARSER WITH THIS:
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+
+//TEST
+app.get("/", (req, res) => {
+  res.send("it is working!!");
+});
+
+
+app.post("/signin", signin.handleSignin(db, bcrypt));
+
+//REGISTERING A NEW USER
+app.post("/register", (req, res) => {
+  register.handleRegister(req, res, db, bcrypt)
+});
+
+//FOR FUTURE APP EXPANSION
+app.get("/profile/:id", (req, res) => {
+  profile.handleProfileGet(req, res, db)})
+
+//COUNTING THE NR OF TIMES YOU USED THE IMAGE DETECTOR
+app.put("/image", (req, res) => {
+  image.handleImage(req, res, db)});
+
+app.post("/imageurl", (req, res) => {
+  image.handleApiCall(req, res)});
+
+//SET LOCAL PORT:
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`app is running on port ${process.env.PORT}`)});
+
+
+
+
+
+
+
+
+
+
+
+/* 
 
 //TEST
 app.get("/", (req, res) => {
@@ -59,39 +99,5 @@ app.post("/imageurl", (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
   console.log(`app is running on port ${process.env.PORT}`);
 });
-
-
-
-
-
-
-/* 
-//TEST
-app.get("/", (req, res) => {
-  res.send("it is working!!");
-});
-
-
-app.post("/signin", signin.handleSignin(db, bcrypt));
-
-//REGISTERING A NEW USER
-app.post("/register", (req, res) => {
-  register.handleRegister(req, res, db, bcrypt)
-});
-
-//FOR FUTURE APP EXPANSION
-app.get("/profile/:id", (req, res) => {
-  profile.handleProfileGet(req, res, db)})
-
-//COUNTING THE NR OF TIMES YOU USED THE IMAGE DETECTOR
-app.put("/image", (req, res) => {
-  image.handleImage(req, res, db)});
-
-app.post("/imageurl", (req, res) => {
-  image.handleApiCall(req, res)});
-
-//SET LOCAL PORT:
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`app is running on port ${process.env.PORT}`)});
 
   */

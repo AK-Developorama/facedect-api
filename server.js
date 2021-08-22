@@ -9,7 +9,7 @@ const signin = require("./controllers/signin");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 
-//DATABASE LINKED:
+
 const db = knex({
   client: "pg",
   connection: {
@@ -22,10 +22,10 @@ const db = knex({
 
 
 //FIXED CORRS ERROR WITH npm install cors -> used here
-app.use(express.json());
 app.use(cors());
 //REPLACED BODYPARSER WITH THIS:
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 
 //TEST

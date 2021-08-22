@@ -1,7 +1,9 @@
 const Clarifai = require("clarifai");
 
+
+//hidden API key from codebase, by creating a CONFIG VARIABLE on the HEROKU app (backend) server/ go to the app/settings
 const app = new Clarifai.App({
-  apiKey: "9f5e3391e61849a6a152039a3ea6ee6f",
+  apiKey: process.env.API_CLARIFAI,
 });
 
 const handleApiCall = (req, res) => {

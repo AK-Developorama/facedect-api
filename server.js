@@ -18,16 +18,7 @@ const db = knex({
   },
 });
 
-/* 
-const db = knex({
-  client: "pg",
-  connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false,
-    }
-  },
-});*/
+
 
 const app = express();
 
@@ -42,31 +33,31 @@ app.use(express.json());
 
 //TEST
 app.get("/", (req, res) => {
-  res.send('it;s working!!');
+  res.send('it;s working!!')
 });
 
 //SIGN IN AN EXISTING USER
 app.post("/signin", (req, res) => {
-  signin.handleSignin(req, res, db, bcrypt);
+  signin.handleSignin(req, res, db, bcrypt)
 });
 
 //REGISTERING A NEW USER
 app.post("/register", (req, res) => {
-  register.handleRegister(req, res, db, bcrypt);
+  register.handleRegister(req, res, db, bcrypt)
 });
 
 //FOR FUTURE APP EXPANSION
 app.get("/profile/:id", (req, res) => {
-  profile.handleProfileGet(req, res, db);
+  profile.handleProfileGet(req, res, db)
 });
 
 //COUNTING THE NR OF TIMES YOU USED THE IMAGE DETECTOR
 app.put("/image", (req, res) => {
-  image.handleImage(req, res, db);
+  image.handleImage(req, res, db)
 });
 
 app.post("/imageurl", (req, res) => {
-  image.handleApiCall(req, res);
+  image.handleApiCall(req, res)
 });
 
 app.listen(process.env.PORT || 3000, () => {

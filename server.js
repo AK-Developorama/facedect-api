@@ -13,7 +13,7 @@ const db = knex({
   connection: {
     host: "127.0.0.1",
     user: "postgres",
-    password: "j*bl6sS",
+    password: "hEGYEKBENsZIVUNK3",
     database: "smart-brain",
   },
 });
